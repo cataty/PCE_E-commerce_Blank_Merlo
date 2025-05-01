@@ -8,7 +8,7 @@ use App\Http\Controllers\BlogController;
 
 Route::get('/', [HomeController::class, 'viewHome'] );
 
-Route::get('/contacto', [ContactController::class, 'viewContact']); // dentro de la classe ContactController, buscamos el metodo viewContact y la ejecutamos cuando se accede a la ruta /contact
+Route::get('/contact', [ContactController::class, 'viewContact']); // dentro de la classe ContactController, buscamos el metodo viewContact y la ejecutamos cuando se accede a la ruta /contact
 
 Route::get('/productos/todos', [ProductosController::class, 'viewProductos']); // dentro de la classe ProductosController, buscamos el metodo viewProductos y la ejecutamos cuando se accede a la ruta /productos  
 
