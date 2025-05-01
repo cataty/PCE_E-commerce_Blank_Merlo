@@ -3,11 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
-{
-    // public function __invoke(){ // invoca una classe como si fuera una function. No puede tener otras functiones dentro de la classe
-    //    return view('welcome');
-    // }
+class HomeController extends Controller{
 
     public function viewHome(){
         return view('home');

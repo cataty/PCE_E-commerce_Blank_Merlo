@@ -6,8 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\BlogController;
 
-Route::get('/', [HomeController::class, 'viewHome'] );
-
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'viewHome'])-> name ('home'); // dentro de la classe HomeController, buscamos el metodo viewHome y la ejecutamos cuando se accede a la ruta /
 Route::get('/contact', [ContactController::class, 'viewContact']); // dentro de la classe ContactController, buscamos el metodo viewContact y la ejecutamos cuando se accede a la ruta /contact
 
 Route::get('/productos', [ProductosController::class, 'viewProductos']); // dentro de la classe ProductosController, buscamos el metodo viewProductos y la ejecutamos cuando se accede a la ruta /productos  
