@@ -19,18 +19,8 @@
             
     </div>
 </section>
-<x-shopPreview :products="$products" />
-</x-shopPreview>
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
-    <section class="bg-lightgreen dark:bg-gray-900">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h2 class="max-w-2xl mb-4 text-4xl text-lightorange font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Productos destacados</h2>
-                <p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                </p>
-            </div>
-        </div>
-
+<x-preview :products="$products" />
+</x-preview>
 <section class="bg-lightgreen dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7" id="about">
