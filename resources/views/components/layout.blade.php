@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
 {{--     @vite('resources/css/app.css')
     @yield('content') --}}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -14,7 +14,6 @@
 <body>
     <div id=”app”>
     
-
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -30,19 +29,19 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <a href="#" class="block py-2 px-3 text-white bg-pink-900 rounded-sm md:bg-transparent md:text-pink-900 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page" href="/">Home</a>
+          <a class="block py-2 px-3 text-white bg-pink-900 rounded-sm md:bg-transparent md:text-pink-900 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page" href="/">Home</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-sky-700 dark:hover:text-white md:dark:hover:bg-transparent" href="/about">Quiénes Somos</a>
+          <a class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-sky-700 dark:hover:text-white md:dark:hover:bg-transparent" href="#about">Quiénes Somos</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-sky-700 dark:hover:text-white md:dark:hover:bg-transparent" href="/productos">Productos</a>
+          <a class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-sky-700 dark:hover:text-white md:dark:hover:bg-transparent" href="/productos/todos">Productos</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-sky-700 dark:hover:text-white md:dark:hover:bg-transparent" href="/blog">Blog</a>
+          <a class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-sky-700 dark:hover:text-white md:dark:hover:bg-transparent" href="/blog/todos">Blog</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" href='/login'>Iniciar Sesión</a>
+          <a class="block py-2 px-3 text-sky-900 rounded-sm hover:bg-sky-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" href='/login'>Iniciar Sesión</a>
         </li>
       </ul>
     </div>
@@ -52,7 +51,7 @@
         <main class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {{$slot}}
         </main>
-        <footer class="footer text-bg-dark text-center">
+        <footer class="footer text-bg-dark color-sky-900 text-center">
         <p>Copyright &copy; Da Vinci 2024</p>
         </footer>
         </div>
