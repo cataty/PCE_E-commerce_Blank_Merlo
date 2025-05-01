@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\BlogController;
 
-Route::get('/', [HomeController::class, 'index'] ); // dentro de la classe HomeController, buscamos el metodo index y la ejecutamos cuando se accede a la ruta /
+Route::get('/', [HomeController::class, 'viewHome'] );
 
 Route::get('/contact', [ContactController::class, 'viewContact']); // dentro de la classe ContactController, buscamos el metodo viewContact y la ejecutamos cuando se accede a la ruta /contact
 

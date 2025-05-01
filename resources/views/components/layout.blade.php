@@ -27,7 +27,7 @@
         </div>
         </nav>
         <main class="p-4">
-        {{slot('content')}}
+        {{$slot}}
         </main>
         <footer class="footer text-bg-dark text-center">
         <p>Copyright &copy; Da Vinci 2024</p>
