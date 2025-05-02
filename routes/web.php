@@ -17,12 +17,12 @@ Route::get('/productos/todos', [ProductosController::class, 'viewProductos'])->n
 
 Route::get('/productos/{id}', [ProductosController::class, 'viewProducto'])->name('producto')->whereNumber('id');
 
-
 Route::get('/blog/todos', [\App\Http\Controllers\BlogController::class, 'viewBlog'])->name('blog');
 
-Route::get('/blog/{id}', function ($id) { // se puede pasar un parametro como una id mediante la ruta
-    echo "El id del blog es: $id";
-});
+//Route::get('/blog/{id}', function ($id) { // se puede pasar un parametro como una id mediante la ruta
+    //echo "El id del blog es: $id";
+//});
+Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])->name('blogpost')->whereNumber('id');
 
 Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
 
