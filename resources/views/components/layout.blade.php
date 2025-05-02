@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url('css/app.css')}}">
+    <link rel="stylesheet" href="css/styles.css">
 {{--     @vite('resources/css/app.css')
     @yield('content') --}}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
