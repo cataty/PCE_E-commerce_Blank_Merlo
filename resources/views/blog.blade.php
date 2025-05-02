@@ -5,9 +5,7 @@
 <x-layout>
 <x-slot:title>Blog</x-slot:title>
     <h1 class="mb-4 text-4xl text-gray-900 md:text-5xl lg:text-6xl">Blog</h1>
-    <?php
-    foreach ($blog as $blogpost):
-    ?>
+    @foreach ($blog as $blogpost):
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="rounded-t-lg" src="{{ $blogpost->imagen }}" alt="" />
@@ -22,7 +20,5 @@
                 </a>
             </div>
         </div>
-    <?php
-    endforeach;
-    ?>
+    @endforeach;
 </x-layout>
