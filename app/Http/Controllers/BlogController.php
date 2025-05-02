@@ -40,7 +40,7 @@ class BlogController extends Controller
             $blogpost->save(); // Guarda el blogpost en la base de datos
             return redirect()->route('dashboard'); // Redirige al dashboard
         }
-        return view('editBlogpost'); // Retorna la vista crearBlogpost.blade.php
+        return view('editarBlogpost'); // Retorna la vista editarBlogpost.blade.php
     }
     
 }

@@ -22,11 +22,12 @@ Route::get('/blog/todos', [\App\Http\Controllers\BlogController::class, 'viewBlo
 //Route::get('/blog/{id}', function ($id) { // se puede pasar un parametro como una id mediante la ruta
     //echo "El id del blog es: $id";
 //});
+
 Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])->name('blogpost')->whereNumber('id');
 
-Route::get('/blog/{id}/editar', [BlogController::class, 'editBlogpost'])->name('editarBlogpost')->whereNumber('id');
+Route::get('/blog/{id}/editar', [BlogController::class, 'editBlogpost'])->name('editarBlogpost')->whereNumber('id')->middleware('auth'); // solo los usuarios autenticados pueden acceder a esta ruta
 
 Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])->name('crearBlogpost')->middleware('auth'); // solo los usuarios autenticados pueden acceder a esta ruta
 
-Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard')->middleware('auth');
 
