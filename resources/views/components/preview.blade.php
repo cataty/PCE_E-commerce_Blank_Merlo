@@ -1,5 +1,5 @@
-<section class="preview w-screen">
-    <h2 class="mb-4 text-4xl text-lightorange font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Productos destacados</h2>
+<section class="preview w-screen flex flex-col items-center justify-center">
+    <h2 class="mb-4 text-4xl text-darkorange font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Productos destacados</h2>
     <div class ="flex flex-wrap justify-center gap-4">
 
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
