@@ -64,7 +64,7 @@
                 <form action="/productos/{{ $producto->id }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
+                    <button type="submit" class="text-darkorange hover:text-orange">Eliminar</button>
                 </form>
             </td>
         </tr>
@@ -96,11 +96,11 @@
                 <td class="mr-8 px-6 py-4">{{ $blogpost->titulo }}</td>
                 <td class="mr-8 px-6 py-4">{{ $blogpost->contenido }}</td>
                 <td class="px-6 py-4">
-                    <a href="/blog/{{ $blogpost->id }}/edit" class="text-blue-600 hover:text-blue-900">Editar</a>
+                    <a href="/blog/{{ $blogpost->id }}/edit" class="text-lightgreen hover:text-darkgreen">Editar</a>
                     <form action="/blog/{{ $blogpost->id }}" method="POST" class="inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
+                        <button type="submit" class="text-darkorange hover:text-orange">Eliminar</button>
                     </form>
                 </td>
             </tr>
