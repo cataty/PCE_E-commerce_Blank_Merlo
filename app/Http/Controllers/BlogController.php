@@ -27,9 +27,20 @@ class BlogController extends Controller
             $blogpost->title = $request->input('title'); // Asigna el titulo del blogpost
             $blogpost->content = $request->input('content'); // Asigna el contenido del blogpost
             $blogpost->save(); // Guarda el blogpost en la base de datos
-            return redirect()->route('blog'); // Redirige a la ruta blog
+            return redirect()->route('dashboard'); // Redirige al dashboard
         }
         return view('crearBlogpost'); // Retorna la vista crearBlogpost.blade.php
+    }
+
+    public function editBlogpost($id, Request $request){
+        if($request->isMethod('post')){ // Mejorar ???!!!
+            $blogpost = Blogpost::find($id); // Crea un nuevo blogpost
+            $blogpost->title = $request->input('title'); // Asigna el titulo del blogpost
+            $blogpost->content = $request->input('content'); // Asigna el contenido del blogpost
+            $blogpost->save(); // Guarda el blogpost en la base de datos
+            return redirect()->route('dashboard'); // Redirige al dashboard
+        }
+        return view('editBlogpost'); // Retorna la vista crearBlogpost.blade.php
     }
     
 }

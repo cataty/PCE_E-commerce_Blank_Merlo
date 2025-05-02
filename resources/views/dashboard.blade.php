@@ -60,7 +60,7 @@
             <td class="mr-8 px-6 py-4">{{ $producto->precio }}</td>
             <td class="mr-8 px-6 py-4">{{ $producto->stock }}</td>
             <td class="px-6 py-4">
-                <a href="/productos/{{ $producto->id }}/edit" class="text-blue-600 hover:text-blue-900">Editar</a>
+                <a href="/productos/editar/{{ $producto->id }}/edit" class="text-blue-600 hover:text-blue-900">Editar</a>
                 <form action="/productos/{{ $producto->id }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
@@ -96,7 +96,7 @@
                 <td class="mr-8 px-6 py-4">{{ $blogpost->titulo }}</td>
                 <td class="mr-8 px-6 py-4">{{ $blogpost->contenido }}</td>
                 <td class="px-6 py-4">
-                    <a href="/blog/{{ $blogpost->id }}/edit" class="text-lightgreen hover:text-darkgreen">Editar</a>
+                    <a href="/blog/{{ $blogpost->id }}/editar" class="text-lightgreen hover:text-darkgreen">Editar</a>
                     <form action="/blog/{{ $blogpost->id }}" method="POST" class="inline">
                         @csrf
                         @method('DELETE')
@@ -107,6 +107,9 @@
             @endforeach
         </tbody>
     </table>
+    <button class="mt-4 px-4 py-2 bg-orange text-white rounded hover:bg-lightgreen">
+        <a href="{{ route('/blog/publicar') }}">Crear Blogpost</a>
+    </button>
   </div>
 </div>
 
