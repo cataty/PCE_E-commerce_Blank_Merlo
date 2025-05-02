@@ -16,5 +16,11 @@ class ProductosController extends Controller
         $productos = Producto::all(); // Trae todos los productos de la base de datos
         return view('productos', ['productos' => $productos]); // Retorna la vista productos.blade.php y le pasa la variable productos
     }
+
+    public function viewProducto(){
+
+        $producto = Producto::all(); // Trae todos los productos de la base de datos
+        return view('producto', ['producto' => $producto]); // Retorna la vista productos.blade.php y le pasa la variable productos
+    }
     
 }
