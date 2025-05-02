@@ -24,5 +24,7 @@ Route::get('/blog/todos', [\App\Http\Controllers\BlogController::class, 'viewBlo
 //});
 Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])->name('blogpost')->whereNumber('id');
 
+Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])->name('crearBlogpost')->middleware('auth'); // solo los usuarios autenticados pueden acceder a esta ruta
+
 Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
 

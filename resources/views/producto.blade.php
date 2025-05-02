@@ -1,3 +1,7 @@
+<?php
+/** @var \Illuminate\Database\Eloquent\Collection\App\Models\Producto::find($id)->toArray() $producto */
+?>
+
 <x-layout>
 <x-slot:title>Producto:</x-slot:title>
     <div class="w-full sm:w-8/12 lg:w-4/12 mx-auto my-12">
