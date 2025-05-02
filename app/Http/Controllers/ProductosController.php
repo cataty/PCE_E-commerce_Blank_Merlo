@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
@@ -11,7 +12,9 @@ class ProductosController extends Controller
     // }
 
     public function viewProductos(){
-        return view('productos');
+
+        $productos = Producto::all(); // Trae todos los productos de la base de datos
+        return view('productos', ['productos' => $productos]); // Retorna la vista productos.blade.php y le pasa la variable productos
     }
     
 }

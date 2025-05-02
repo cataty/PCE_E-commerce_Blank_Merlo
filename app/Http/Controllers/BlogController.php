@@ -11,7 +11,7 @@ class BlogController extends Controller
     // }
 
     public function viewBlog(){
-        return view('blog');
+        return view('blog', ['blog' => $blog]); // Retorna la vista blog.blade.php y le pasa la variable blog
     }
     
 }
