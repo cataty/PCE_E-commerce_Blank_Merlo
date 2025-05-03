@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -10,31 +11,34 @@ class DashboardController extends Controller
     //    return view('welcome');
     // }
 
-    public function viewDashboard(){
-        if (auth()->check()) { // verifica si el usuario está autenticado
-            // usuario identificado
-            $usuarios = \App\Models\User::all(); // Trae todos los usuarios de la base de datos
-            $productos = \App\Models\Producto::all(); // Trae todos los productos de la base de datos
-            $blog = \App\Models\Blogpost::all(); // Trae todos los blogposts de la base de datos
+    public function index()
+    {
+        if (Auth::check()) { // verifica si el usuario está autenticado
+            if (Auth::check()) { // verifica si el usuario está autenticado
+                // usuario identificado
+                $usuarios = \App\Models\User::all(); // Trae todos los usuarios de la base de datos
+                $productos = \App\Models\Producto::all(); // Trae todos los productos de la base de datos
+                $blog = \App\Models\Blogpost::all(); // Trae todos los blogposts de la base de datos
 
-            return view('dashboard',[
-                'usuarios' => $usuarios,
-                'productos' => $productos,
-                'blog' => $blog
-            ]);
-        } else {
-            // usuario no identificado
-            // return redirect('/'); // redirige a la vista de inicio
+                return view('dashboard', [
+                    'usuarios' => $usuarios,
+                    'productos' => $productos,
+                    'blog' => $blog
+                ]);
+            } else {
+                // usuario no identificado
+                // return redirect('/'); // redirige a la vista de inicio
 
-            $usuarios = \App\Models\User::all(); // Trae todos los usuarios de la base de datos
-            $productos = \App\Models\Producto::all(); // Trae todos los productos de la base de datos
-            $blog = \App\Models\Blogpost::all(); // Trae todos los blogposts de la base de datos
+                $usuarios = \App\Models\User::all(); // Trae todos los usuarios de la base de datos
+                $productos = \App\Models\Producto::all(); // Trae todos los productos de la base de datos
+                $blog = \App\Models\Blogpost::all(); // Trae todos los blogposts de la base de datos
 
-            return view('dashboard',[
-                'usuarios' => $usuarios,
-                'productos' => $productos,
-                'blog' => $blog
-            ]); //por ahora lo dejo igual
+                return view('dashboard', [
+                    'usuarios' => $usuarios,
+                    'productos' => $productos,
+                    'blog' => $blog
+                ]); //por ahora lo dejo igual
+            }
         }
     }
     

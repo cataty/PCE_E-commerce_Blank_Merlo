@@ -1,4 +1,5 @@
-<form action="{{ route('blogposts.store') }}" method="POST">
+<form action="{{ route('cargaDatosBlogpost') }}" method="POST">
+    @csrf
     <x-layout>
         <x-slot:title>Blog</x-slot:title>
         <h1 class="max-w-2xl mb-12 pt-12 text-4xl text-lightgreen font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-whitel">Crear Blogpost</h1>
@@ -31,4 +32,4 @@
         <button type="submit">Publicar</button>
     </div>
 </form>
-</x-layout
+</x-layout>

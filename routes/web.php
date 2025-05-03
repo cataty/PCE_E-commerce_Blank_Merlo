@@ -8,7 +8,8 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\QuienesSomosController; 
-
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, 'viewHome'])
     ->name('home');
@@ -45,7 +46,16 @@ Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])
 Route::post('/blog/publicar', [BlogController::class, 'cargaDatosBlogpost'])
     ->name('cargaDatosBlogpost');
 
-Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])
+Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth');
 
+
+Route::get('/iniciar-sesion', [AuthController::class, 'viewLogin'])
+    ->name('login');
+
+Route::post('/iniciar-sesion', [AuthController::class, 'authenticate'])
+    ->name('login.authenticate');
+
+Route::post('/cerrar-sesion', [AuthController::class, 'logout'])
+    ->name('logout');

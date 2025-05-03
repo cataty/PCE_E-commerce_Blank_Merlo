@@ -42,5 +42,22 @@ class BlogController extends Controller
         }
         return view('editarBlogpost'); // Retorna la vista editarBlogpost.blade.php
     }
+
+    //metodo para captar datos del formulario para crear un nuevo blogpost e insertarlos en la base de datos:
+    public function cargaDatosBlogpost(Request $request){
+        $input = $request->all(); 
+
+        $blogpost =             new Blogpost();
+        $blogpost->titulo =     $input['titulo'];
+        $blogpost->contenido =  $input['contenido'];
+        $blogpost->imagen =     $input['imagen'];
+        $blogpost->autor =      $input['autor'];
+        $blogpost->save();
+
+        return redirect()
+            ->route('blog') 
+            ->with ('feedback.message', 'Posteo creado con éxito'); // Redirige a la vista blog.blade.php y le pasa la variable success  
+        
+    }
     
 }

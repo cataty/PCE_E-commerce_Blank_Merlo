@@ -108,7 +108,7 @@
         </tbody>
     </table>
     <button class="mt-4 px-4 py-2 bg-orange text-white rounded hover:bg-lightgreen">
-        <a href="{{ route('/blog/publicar') }}">Crear Blogpost</a>
+        <a href="{{ route('crearBlogpost') }}">Crear Blogpost</a>
     </button>
   </div>
 </div>
