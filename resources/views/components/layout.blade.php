@@ -16,7 +16,7 @@
     <div id=”app”>
     
 <nav class="bg-darkorange border-gray-200 dark:bg-gray-900">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <div class="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4">
     <a href="/public/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="{{ asset('img/Logo.svg') }}" class="h-12" alt="Monstierra Logo" />
     </a>
@@ -32,7 +32,7 @@
           <a class="block py-2 px-3 text-white bg-dark-orange rounded-sm md:bg-transparent md:text-dark-orange md:p-0 dark:text-white md:dark:text-light-green" aria-current="page" href="{{route ('home')}}">Home</a>
         </li>
         <li>
-          <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('quienes-somos')}}">Quiénes Somos</a>
+          <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="/#about">Quiénes Somos</a>
         </li>
         <li>
           <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('productos')}}">Productos</a>
@@ -59,7 +59,7 @@
   </div>
 </nav>
 
-        <main class="flex flex-wrap items-center justify-between mx-auto p-4">
+        <main class="flex flex-wrap items-center justify-center mx-auto p-4">
         {{$slot}}
         </main>
         <footer class="footer text-lightorange bg-darkgreen text-center">

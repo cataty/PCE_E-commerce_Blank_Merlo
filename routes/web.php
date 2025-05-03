@@ -17,9 +17,6 @@ Route::get('/', [HomeController::class, 'viewHome'])
 Route::get('/contact', [ContactController::class, 'viewContact'])
     ->name('contact');
 
-Route::get('quienes-somos', [QuienesSomosController::class, 'viewQuienesSomos'])
-    ->name('quienes-somos');
-
 Route::get('/productos/todos', [ProductosController::class, 'viewProductos'])
     ->name('productos');
 

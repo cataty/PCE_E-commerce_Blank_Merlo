@@ -2,7 +2,7 @@
     <x-slot:title>Iniciar Sesión</x-slot:title>
 
         
-    <div class="flex flex-col items-center justify-center min-h-screen">
+    <div class="flex flex-col mt-20 min-h-screen">
         <h1 class="block text-gray-700 text-2xl font-bold mb-6 text-center">Iniciar Sesión</h1>
         @if (session('auth.required'))
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
