@@ -1,33 +1,32 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\DashboardController; 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\QuienesSomosController; 
 
 
+Route::get('/', [HomeController::class, 'viewHome'])->name('home');
 
-Route::get('/', [HomeController::class, 'viewHome']) ->name('home'); // dentro de la classe HomeController, buscamos el metodo viewHome y la ejecutamos cuando se accede a la ruta /
+Route::get('/contact', [ContactController::class, 'viewContact'])->name('contact');
 
-Route::get('/contact', [ContactController::class, 'viewContact'])->name('contact'); // dentro de la classe ContactController, buscamos el metodo viewContact y la ejecutamos cuando se accede a la ruta /contact
+Route::get('quienes-somos', [QuienesSomosController::class, 'viewQuienesSomos'])->name('quienes-somos');
 
-Route::get('/productos/todos', [ProductosController::class, 'viewProductos'])->name('productos'); // dentro de la classe ProductosController, buscamos el metodo viewProductos y la ejecutamos cuando se accede a la ruta /productos  
+Route::get('/productos/todos', [ProductosController::class, 'viewProductos'])->name('productos');
 
-Route::get('/productos/{id}', [ProductosController::class, 'viewProducto'])->name('producto')->whereNumber('id');
+Route::get('/productos/{id}', [ProductosController::class, 'viewProducto'])->name('producto')->where('id', '[0-9]+');
 
-Route::get('/blog/todos', [\App\Http\Controllers\BlogController::class, 'viewBlog'])->name('blog');
+Route::get('/blog/todos', [BlogController::class, 'viewBlog'])->name('blog');
 
-//Route::get('/blog/{id}', function ($id) { // se puede pasar un parametro como una id mediante la ruta
-    //echo "El id del blog es: $id";
-//});
+Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])->name('blogpost')->where('id', '[0-9]+');
 
-Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])->name('blogpost')->whereNumber('id');
+Route::get('/blog/{id}/editar', [BlogController::class, 'editBlogpost'])->name('editarBlogpost')->where('id', '[0-9]+')->middleware('auth');
 
-Route::get('/blog/{id}/editar', [BlogController::class, 'editBlogpost'])->name('editarBlogpost')->whereNumber('id')->middleware('auth'); // solo los usuarios autenticados pueden acceder a esta ruta
-
-Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])->name('crearBlogpost')->middleware('auth'); // solo los usuarios autenticados pueden acceder a esta ruta
+Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])->name('crearBlogpost')->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard')->middleware('auth');
 

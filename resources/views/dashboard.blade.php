@@ -49,7 +49,7 @@
         <tr>
             <th class="mr-8 px-6 py-3">Nombre</th>
             <th class="mr-8 px-6 py-3">Precio</th>
-            <th class="mr-8 px-6 py-3">Stock</th>
+            <th class="mr-8 px-6 py-3">Categoria</th>
             <th class="px-6 py-3">Acciones</th>
         </tr>
     </thead>
@@ -58,7 +58,7 @@
         <tr>
             <td class="mr-8 px-6 py-4">{{ $producto->nombre }}</td>
             <td class="mr-8 px-6 py-4">{{ $producto->precio }}</td>
-            <td class="mr-8 px-6 py-4">{{ $producto->stock }}</td>
+            <td class="mr-8 px-6 py-4">{{ $producto->categoria }}</td>
             <td class="px-6 py-4">
                 <a href="/productos/editar/{{ $producto->id }}/edit" class="text-blue-600 hover:text-blue-900">Editar</a>
                 <form action="/productos/{{ $producto->id }}" method="POST" class="inline">

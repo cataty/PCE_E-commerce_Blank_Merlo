@@ -19,7 +19,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categorias-pr', function (Blueprint $table) {
-            $table->id('categoriapr_id');
+            $table->id();
             $table->string('nombre');
             $table->timestamps();
         });
