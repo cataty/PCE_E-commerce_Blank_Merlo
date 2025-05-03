@@ -17,7 +17,7 @@ class BlogController extends Controller
     }
 
     public function viewBlogpost($id){
-        $blogpost = Blogpost::find($id); // Busca el blogpost por id
+        $blogpost = Blogpost::findOrFail($id); // Busca el blogpost por id
         return view('blogpost', ['blogpost' => $blogpost]); // Retorna la vista blog.blade.php y le pasa la variable blogpost
     }
 
