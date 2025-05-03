@@ -11,12 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->redirectGuestsTo(function (\Illuminate\Http\Request $request) {
-            session()->flash('feedback.message', 'Debes iniciar sesión para acceder a esta página.');
-            session()->flash('feedback.type', 'warning');
-            return route('login');
-        });
-    })
+        $middleware->alias(['auth' => \App\Http\Middleware\RequireAuthWithMessage::class]);
+    }) 
 
 
     ->withExceptions(function (Exceptions $exceptions) {
