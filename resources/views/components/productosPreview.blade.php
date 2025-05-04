@@ -9,7 +9,7 @@
 
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="{{ route('producto', ['id' => $producto->producto_id]) }}">
-                <img class="rounded-t-lg" src="{{ $producto->imagen }}" alt="" />
+                <img class="rounded-t-lg" src="{{ asset($producto['imagen'])}}" alt="{{ $producto->nombre }}" >
             </a>
             <div class="p-5">
                 <a href="{{ route('producto', ['id' => $producto->producto_id]) }}">
