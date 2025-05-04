@@ -45,7 +45,7 @@ class BlogController extends Controller
     } */
 
    
-    public function cargaDatosBlogpost(Request $request){
+    public function saveDataBlogpost(Request $request){
         $request->validate([
             'titulo' => 'required|max:255',
             'contenido' => 'required',
