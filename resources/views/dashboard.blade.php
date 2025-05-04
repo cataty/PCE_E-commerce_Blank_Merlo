@@ -87,6 +87,7 @@
                   <th class="mr-8 px-6 py-3">Título</th>
                   <th class="mr-8 px-6 py-3">Contenido</th>
                   <th class="px-6 py-3">Categoria</th>
+                  <th class="px-6 py-3">Fecha</th>
                   <th class="px-6 py-3">Acciones</th>
               </tr>
           </thead>
@@ -96,8 +97,14 @@
                   <td class="mr-8 px-6 py-4">{{ $blogpost->titulo }}</td>
                   <td class="mr-8 px-6 py-4">{{ $blogpost->contenido }}</td>
                   <td class="mr-8 px-6 py-4">{{ $blogpost->categoria_blog->nombre_categoria }}</td>
+                  <td class="mr-8 px-6 py-4">{{ $blogpost->updated_at }}</td>
                   <td class="px-6 py-4">
+                    <p>
+                    <a href="{{route('blog', ['id'=> $blogpost->id ])}}" class="text-lightgreen hover:text-darkgreen">ver</a>
+                    </p>
+                    <p>
                       <a href="{{route('editarBlogpost', ['id'=> $blogpost->id ])}}" class="text-lightgreen hover:text-darkgreen">Editar</a>
+                    </p>
                       <form action="{{ route('deleteBlogpost', ['id' => $blogpost->id]) }}" method="POST" class="inline">
                           @csrf
                           @method('DELETE')
