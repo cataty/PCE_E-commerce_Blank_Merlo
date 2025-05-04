@@ -9,7 +9,7 @@
     @yield('content') --}}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="{{url('img/favicon.svg')}}">
+    <link rel="icon" type="image/x-icon" href="{{url('img/favicon.png')}}">
     <title>{{$title ?? ''}}</title>
 </head>
 <body>
@@ -41,6 +41,9 @@
           <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('blog')}}">Blog</a>
         </li>
         @if(auth()->check())
+        <li>
+          <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('dashboard')}}">Dashboard</a>
+        </li>
         <li>
           <form action="{{ route('logout') }}" method="POST">
             @csrf

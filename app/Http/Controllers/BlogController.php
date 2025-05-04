@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blogpost; // Importa el modelo Blogpost
 use Illuminate\Http\Request;
 use App\Models\CategoriaBlog; // Importa el modelo CategoriaBlog
+use App\Models\Producto; // Importa el modelo Producto
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\AuthManager; 
 
@@ -22,17 +23,11 @@ class BlogController extends Controller
 
     public function viewBlogpost($id){
         $blogpost = Blogpost::findOrFail($id); // Busca el blogpost por id
-        return view('blogpost', ['blogpost' => $blogpost]); // Retorna la vista blog.blade.php y le pasa la variable blogpost
+        $productosAleatorios = Producto::inRandomOrder()->take(3)->get(); // Trae 3 productos aleatorios de la base de datos para mostrar debajo del blogpost
+        return view('blogpost', ['blogpost' => $blogpost], ['productosAleatorios' => $productosAleatorios]); // Retorna la vista blog.blade.php y le pasa la variable blogpost
     }
 
     public function createBlogpost(Request $request){
-        /*if($request->isMethod('post')){ // Si el metodo de la peticion es post
-            $blogpost = new Blogpost(); // Crea un nuevo blogpost
-            $blogpost->title = $request->input('title'); // Asigna el titulo del blogpost
-            $blogpost->content = $request->input('content'); // Asigna el contenido del blogpost
-            $blogpost->save(); // Guarda el blogpost en la base de datos
-            return redirect()->route('dashboard'); // Redirige al dashboard
-        }*/
         $categorias = CategoriaBlog::all(); // Trae todas las categorias de la base de datos
         return view('crearBlogpost', ['categorias' => $categorias]); 
     } 
