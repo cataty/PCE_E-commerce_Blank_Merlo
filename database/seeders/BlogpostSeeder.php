@@ -26,7 +26,7 @@ Este diseño no solo marca nuestro aniversario, sino que también simboliza el c
 
 ¡Únete a la celebración con "El Monstruo Festivo" y lleva contigo un pedacito de nuestra historia! 🎉
                 ',
-                'categoria' => '1',
+                'categoria_blog_id' => '1',
                 'imagen' => 'img/blog1.webp',
                 'autor' => 'John',
                 'created_at' => now(),
