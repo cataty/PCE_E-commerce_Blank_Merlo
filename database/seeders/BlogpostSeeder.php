@@ -13,9 +13,9 @@ class BlogpostSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('productos')->insert([
+        DB::table('blog')->insert([
             [
-                'id' => 1,
+                'usuario_id' => 1,
                 'titulo' => 'Celebrando 5 años con un nuevo diseño',
                 'contenido' => '
 Ya hace cinco años que nació nuestra marca artesanal de remeras con un objetivo claro: llevar alegría y originalidad a cada prenda. Inspirados por la creatividad y el amor por los pequeños detalles, decidimos crear diseños únicos protagonizados por monstruos adorables. Cada uno de ellos tiene su propia personalidad, y juntos han conquistado corazones con sus mensajes positivos y su estilo único.
@@ -28,7 +28,7 @@ Este diseño no solo marca nuestro aniversario, sino que también simboliza el c
                 ',
                 'categoria' => '1',
                 'imagen' => 'img/blog1.webp',
-                'autor_id' => 1,
+                'autor' => 'John',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
