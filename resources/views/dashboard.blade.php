@@ -100,7 +100,7 @@
                   <td class="mr-8 px-6 py-4">{{ $blogpost->updated_at }}</td>
                   <td class="px-6 py-4">
                     <p>
-                      <a href="{{route('blog', ['id'=> $blogpost->id ])}}" class="text-lightgreen hover:text-darkgreen">Ver</a>
+                      <a href="{{ route('blogpost', ['id' => $blogpost->id]) }}" class="text-lightgreen hover:text-darkgreen">Ver</a>
                     </p>
                     <p>
                       <a href="{{route('editarBlogpost', ['id'=> $blogpost->id ])}}" class="text-lightgreen hover:text-darkgreen">Editar</a>
