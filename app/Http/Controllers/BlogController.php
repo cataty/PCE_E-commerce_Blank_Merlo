@@ -48,8 +48,15 @@ class BlogController extends Controller
         return view('editarBlogpost'); // Retorna la vista editarBlogpost.blade.php
     }
 
-    //metodo para captar datos del formulario para crear un nuevo blogpost e insertarlos en la base de datos:
+   
     public function cargaDatosBlogpost(Request $request){
+        $request->validate([
+            'titulo' => 'required|max:255',
+            'contenido' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'categoria' => 'required|exists:categoria_blog,categoria_blog_id'
+        ]);
+        
         $input = $request->all(); 
 
         $blogpost =             new Blogpost();

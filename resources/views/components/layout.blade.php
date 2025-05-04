@@ -42,6 +42,9 @@
         </li>
         @if(auth()->check())
         <li>
+          <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('dashboard')}}">Panel</a>
+        </li>
+        <li>
           <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="block py-2 px-3 text-emerald-100 rounded-sm hover:bg-emerald-100 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent">
@@ -61,7 +64,7 @@
 <main class="flex flex-wrap content-start justify-center mx-auto pt-20">
   @if (session('feedback.message'))
   <div class="w-screen bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-      <p class="font-bold">Advertencia</p>
+      
       <p>{{ session('feedback.message') }}</p>
   </div>
 @endif
