@@ -53,8 +53,14 @@ class BlogController extends Controller
         $request->validate([
             'titulo' => 'required|max:255',
             'contenido' => 'required',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'categoria' => 'required|exists:categoria_blog,categoria_blog_id'
+            'imagen' => 'required',
+            'categoria' => 'required',
+        ], 
+        [
+            'titulo.required' => 'El campo título es obligatorio',
+            'contenido.required' => 'El campo contenido es obligatorio',
+            'imagen.required' => 'El campo imagen es obligatorio',
+            'categoria.required' => 'El campo categoría es obligatorio',
         ]);
         
         $input = $request->all(); 
