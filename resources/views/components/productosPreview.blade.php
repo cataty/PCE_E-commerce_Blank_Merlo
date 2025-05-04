@@ -1,5 +1,5 @@
-<section class=" mt-12 preview w-screen bg-orange-50 flex flex-col items-center justify-center pb-16">
-    <h2 class="my-16 text-4xl text-lightgreen font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Algunos de nuestros productos</h2>
+<section class=" mt-12 preview w-screen bg-slate-50 flex flex-col items-center justify-center pb-16">
+    <h2 class="my-16 text-4xl text-darkorange font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Algunos de nuestros productos</h2>
     <div class ="flex flex-wrap justify-center gap-4">
 
     <?php
