@@ -40,7 +40,7 @@ Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])
     ->name('crearBlogpost')
     ->middleware('auth');
 
-Route::post('/blog/publicar', [BlogController::class, 'cargaDatosBlogpost'])
+Route::post('/blog/publicar', [BlogController::class, 'saveDataBlogpost'])
     ->name('cargaDatosBlogpost')
     ->middleware('auth');
 
