@@ -58,24 +58,13 @@
     </div>
   </div>
 </nav>
-<<<<<<< Updated upstream
-        <main class="flex flex-wrap items-center justify-center mx-auto p-4">
-
-        @if (session('feedback.message'))
-            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-                <p>{{ session('feedback.message') }}</p>
-            </div>
-        @endif
-        <main class="flex flex-wrap items-center justify-between mx-auto p-4">
-=======
-<main class="flex flex-wrap items-center justify-center mx-auto">
+<main class="flex flex-wrap content-start justify-center mx-auto pt-20">
   @if (session('feedback.message'))
   <div class="w-screen bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
       <p class="font-bold">Advertencia</p>
       <p>{{ session('feedback.message') }}</p>
   </div>
 @endif
->>>>>>> Stashed changes
         {{$slot}}
         </main>
         <footer class="footer text-lightorange w-screen bg-darkgreen text-center">
