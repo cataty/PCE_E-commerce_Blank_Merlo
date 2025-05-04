@@ -22,15 +22,15 @@ class BlogController extends Controller
     }
 
     public function createBlogpost(Request $request){
-        if($request->isMethod('post')){ // Si el metodo de la peticion es post
+        /*if($request->isMethod('post')){ // Si el metodo de la peticion es post
             $blogpost = new Blogpost(); // Crea un nuevo blogpost
             $blogpost->title = $request->input('title'); // Asigna el titulo del blogpost
             $blogpost->content = $request->input('content'); // Asigna el contenido del blogpost
             $blogpost->save(); // Guarda el blogpost en la base de datos
             return redirect()->route('dashboard'); // Redirige al dashboard
-        }
+        }*/
         return view('crearBlogpost'); // Retorna la vista crearBlogpost.blade.php
-    }
+    } 
 
     public function editBlogpost($id, Request $request){
         if($request->isMethod('post')){ // Mejorar ???!!!

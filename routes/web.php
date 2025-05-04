@@ -44,7 +44,8 @@ Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])
     ->middleware('auth');
 
 Route::post('/blog/publicar', [BlogController::class, 'cargaDatosBlogpost'])
-    ->name('cargaDatosBlogpost');
+    ->name('cargaDatosBlogpost')
+    ->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
