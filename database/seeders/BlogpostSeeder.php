@@ -16,7 +16,7 @@ class BlogpostSeeder extends Seeder
         DB::table('blog')->insert([
             [
                 'usuario_id' => 1,
-                'titulo' => 'Celebrando 5 años con un nuevo diseño',
+                'titulo' => 'Celebrando 5 Años con un Nuevo Diseño',
                 'contenido' => '
 Ya hace cinco años que nació nuestra marca artesanal de remeras con un objetivo claro: llevar alegría y originalidad a cada prenda. Inspirados por la creatividad y el amor por los pequeños detalles, decidimos crear diseños únicos protagonizados por monstruos adorables. Cada uno de ellos tiene su propia personalidad, y juntos han conquistado corazones con sus mensajes positivos y su estilo único.
 
