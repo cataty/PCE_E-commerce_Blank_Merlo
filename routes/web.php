@@ -44,6 +44,11 @@ Route::post('/blog/publicar', [BlogController::class, 'cargaDatosBlogpost'])
     ->name('cargaDatosBlogpost')
     ->middleware('auth');
 
+Route::delete('/blog/{id}/eliminar', [BlogController::class, 'deleteBlogpost'])
+    ->name('deleteBlogpost')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth');

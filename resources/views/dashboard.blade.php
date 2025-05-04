@@ -98,10 +98,10 @@
                   <td class="mr-8 px-6 py-4">{{ $blogpost->categoria_blog->nombre_categoria }}</td>
                   <td class="px-6 py-4">
                       <a href="/blog/{{ $blogpost->id }}/editar" class="text-lightgreen hover:text-darkgreen">Editar</a>
-                      <form action="/blog/{{ $blogpost->id }}" method="POST" class="inline">
+                      <form action="{{ route('deleteBlogpost', ['id' => $blogpost->id]) }}" method="POST" class="inline">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="text-darkorange hover:text-orange">Eliminar</button>
+                          <button type="submit" class="text-darkorange hover:text-orange focus:outline-none">Eliminar</button>
                       </form>
                   </td>
               </tr>

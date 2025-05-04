@@ -79,4 +79,19 @@ class BlogController extends Controller
         
     }
     
+    public function deleteBlogpost($id)
+    {
+        $blogpost = Blogpost::find($id);
+
+        
+
+        
+
+        $blogpost->delete();
+
+        return redirect()->route('dashboard')->with('feedback.message', 'Blogpost eliminado con éxito.');
+    }
+
+
+
 }
