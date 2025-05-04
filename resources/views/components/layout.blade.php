@@ -26,8 +26,8 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-lightgreen">
+    <div class=" hidden w-full md:flex md:w-auto justify-center" id="navbar-default">
+      <ul class="font-medium flex flex-col p-4 md:pt-4  rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-lightgreen">
         <li>
           <a class="block py-2 px-3 text-white bg-dark-orange rounded-sm md:bg-transparent md:text-dark-orange md:p-0 dark:text-white md:dark:text-light-green" aria-current="page" href="{{route ('home')}}">Home</a>
         </li>
