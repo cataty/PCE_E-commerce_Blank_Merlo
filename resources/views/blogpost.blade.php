@@ -5,7 +5,7 @@
                 {{ $blogpost->categoria_blog->nombre_categoria }}
             </p>
         <h1 class="mb-4 font-bold text-4xl text-darkorange md:text-4xl">{{$blogpost["titulo"]}}</h1>
-        <img class="mb-8" src="{{ asset($blogpost['imagen'])}}" alt="{{$blogpost['nombre']}}" />
+        <img class="mb-8" src="{{ asset($blogpost['imagen'])}}" alt="{{$blogpost['nombre']}}" >
         <p class="mb-12 uppercase text-sm font-bold text-lightgreen dark:text-gray-400">
             {{$blogpost["updated_at"]}}
         </p>

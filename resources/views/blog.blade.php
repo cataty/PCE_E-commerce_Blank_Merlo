@@ -10,7 +10,7 @@
     @foreach ($blog as $blogpost)
         <div class="p-8 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="{{ route('blogpost', ['id' => $blogpost->id]) }}">
-                <img class="mb-12" src="{{ asset($blogpost['imagen'])}}" alt="{{$blogpost['titulo']}}" />
+                <img class="mb-12" src="{{ asset($blogpost['imagen'])}}" alt="{{$blogpost['titulo']}}" >
             </a>
                 <a href="{{ route('blogpost', ['id' => $blogpost->id]) }}">
                     <h2 class="mb-12 text-2xl font-bold tracking-tight text-darkgreen dark:text-white">{{ $blogpost->titulo }}</h3>

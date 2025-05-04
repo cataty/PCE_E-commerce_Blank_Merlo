@@ -9,7 +9,7 @@
 
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                <a href="{{ route('blogpost', ['id' => $blogpost->id]) }}">
-                <img class="rounded-t-lg" src="{{ $blogpost->imagen }}" alt="{{ $blogpost->titulo }}" />
+                <img class="rounded-t-lg" src="{{ $blogpost->imagen }}" alt="{{ $blogpost->titulo }}">
             </a>
             <div class="p-5">
                    <a href="{{ route('blogpost', ['id' => $blogpost->id]) }}">
