@@ -11,6 +11,8 @@ class Blogpost extends Model
     use HasFactory;
     protected $table = 'blog';
 
+   
+
     public function categoria_blog(): BelongsTo {
         return $this->belongsTo(CategoriaBlog::class, 'categoria_blog_id', 'categoria_blog_id');}
 
