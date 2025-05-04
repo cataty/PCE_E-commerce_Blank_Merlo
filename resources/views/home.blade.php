@@ -1,6 +1,5 @@
 <x-layout>
 <x-slot:title>Home</x-slot:title>
-
     <section class="w-screen bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="lg:mt-0 lg:col-span-5 lg:flex mr-12 ml-12">
@@ -19,8 +18,8 @@
             
     </div>
 </section>
-{{-- <x-preview /> --}}
-<section class="w-screen bg-lightgreen dark:bg-gray-900 mt-12">
+    <x-productosPreview :productosAleatorios="$productosAleatorios" />
+<section class="w-screen bg-lightgreen dark:bg-gray-900">
     <div class="flex max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:grid-cols-12 justify-center">
         <div class="place-self-center lg:col-span-7" id="about">
             <h2 class="max-w-2xl mb-4 text-4xl text-lightorange font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Acerca de Nosotros</h2>
@@ -30,5 +29,6 @@
         </div>
     </div>
 </section>
+<x-blogPreview :blogpostsRecientes="$blogpostsRecientes" />
     <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
 </x-layout>

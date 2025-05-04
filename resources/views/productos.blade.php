@@ -18,7 +18,7 @@
                 <a href="{{ route('producto', ['id' => $producto->producto_id]) }}">
                     <h2 class="mb-2 text-2xl font-bold tracking-tight text-darkgreen dark:text-white">{{ $producto->nombre }}</h3>
                 </a>
-                <p class="mb-8 text-lightgreen">precio: {{ $producto->precio }}$</p>
+                <p class="mb-8 font-normal text-lightgreen dark:text-gray-400">precio: <span class="font-bold">{{ $producto->precio }}$</span></p>
                 {{-- <p class="mb-3 font-normal text-lightgreen dark:text-gray-400">{{ $producto->descripcion }}</p> --}}
                 {{-- <p class="mb-3 font-normal text-lightgreen dark:text-gray-400">{{ $producto->stock }}</p> --}}
                 {{-- <p class="mb-3 font-normal text-lightgreen dark:text-gray-400">{{ $producto->descripcion }}</p> --}}
