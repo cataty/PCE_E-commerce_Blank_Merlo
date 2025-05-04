@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 #
 use App\Models\Blogpost; // Importa el modelo Blogpost
 use Illuminate\Http\Request;
+use App\Models\CategoriaBlog; // Importa el modelo CategoriaBlog
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthManager; 
+
 
 class BlogController extends Controller
 {
@@ -29,7 +33,8 @@ class BlogController extends Controller
             $blogpost->save(); // Guarda el blogpost en la base de datos
             return redirect()->route('dashboard'); // Redirige al dashboard
         }*/
-        return view('crearBlogpost'); // Retorna la vista crearBlogpost.blade.php
+        $categorias = CategoriaBlog::all(); // Trae todas las categorias de la base de datos
+        return view('crearBlogpost', ['categorias' => $categorias]); 
     } 
 
     public function editBlogpost($id, Request $request){
@@ -51,7 +56,8 @@ class BlogController extends Controller
         $blogpost->titulo =     $input['titulo'];
         $blogpost->contenido =  $input['contenido'];
         $blogpost->imagen =     $input['imagen'];
-        $blogpost->autor =      $input['autor'];
+        $blogpost->categoria_blog_id = $input['categoria']; // Asigna el id de la categoria del blogpost
+        $blogpost->usuario_id = auth()->id();
         $blogpost->save();
 
         return redirect()

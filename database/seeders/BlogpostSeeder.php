@@ -28,7 +28,6 @@ Este diseño no solo marca nuestro aniversario, sino que también simboliza el c
                 ',
                 'categoria_blog_id' => '1',
                 'imagen' => 'img/blog1.webp',
-                'autor' => 'John',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
