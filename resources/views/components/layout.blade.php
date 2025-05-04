@@ -64,7 +64,7 @@
 <main class="flex flex-wrap content-start justify-center mx-auto pt-20">
   @if (session('feedback.message'))
   <div class="w-screen bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-      <p class="font-bold">Advertencia</p>
+      
       <p>{{ session('feedback.message') }}</p>
   </div>
 @endif

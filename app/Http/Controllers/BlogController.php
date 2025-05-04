@@ -43,8 +43,21 @@ class BlogController extends Controller
         return view('editarBlogpost'); // Retorna la vista editarBlogpost.blade.php
     }
 
-    //metodo para captar datos del formulario para crear un nuevo blogpost e insertarlos en la base de datos:
+   
     public function cargaDatosBlogpost(Request $request){
+        $request->validate([
+            'titulo' => 'required|max:255',
+            'contenido' => 'required',
+            'imagen' => 'required',
+            'categoria' => 'required',
+        ], 
+        [
+            'titulo.required' => 'El campo título es obligatorio',
+            'contenido.required' => 'El campo contenido es obligatorio',
+            'imagen.required' => 'El campo imagen es obligatorio',
+            'categoria.required' => 'El campo categoría es obligatorio',
+        ]);
+        
         $input = $request->all(); 
 
         $blogpost =             new Blogpost();
@@ -61,4 +74,19 @@ class BlogController extends Controller
         
     }
     
+    public function deleteBlogpost($id)
+    {
+        $blogpost = Blogpost::find($id);
+
+        
+
+        
+
+        $blogpost->delete();
+
+        return redirect()->route('dashboard')->with('feedback.message', 'Blogpost eliminado con éxito.');
+    }
+
+
+
 }
