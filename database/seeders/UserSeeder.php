@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('hola1234'),
             'created_at' => now(),
             'updated_at' => now(),
+            'compras' => 'Remera Yeah verde',
         ],
         [
             'id' => 2,
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('hola1234'),
             'created_at' => now(),
             'updated_at' => now(),
+            'compras' => 'Remera Yeah gris',
         ],
         [
             'id' => 3,
@@ -38,6 +40,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('hola1234'),
             'created_at' => now(),
             'updated_at' => now(),
+            'compras' => 'Remera Yeah marron',
         ],
         ]);
     }
