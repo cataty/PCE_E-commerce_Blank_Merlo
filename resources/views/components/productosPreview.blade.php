@@ -1,4 +1,4 @@
-<section class=" mt-12 preview w-screen bg-orange-50 flex flex-col items-center justify-center pb-12">
+<section class=" mt-12 preview w-screen bg-orange-50 flex flex-col items-center justify-center pb-16">
     <h2 class="my-16 text-4xl text-lightgreen font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Algunos de nuestros productos</h2>
     <div class ="flex flex-wrap justify-center gap-4">
 
@@ -25,5 +25,9 @@
     endforeach;
     ?>
     </div>
+    <a href="/productos/todos" class="inline-flex items-center justify-center mt-12 px-5 py-3 text-base font-bold text-center bg-lightorange text-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+        Ver todos
+        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </a> 
     <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
 </section>

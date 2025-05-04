@@ -68,7 +68,7 @@
         {{$slot}}
         </main>
         <footer class="footer text-lightorange w-screen bg-darkgreen text-center">
-        <p>Copyright &copy; Da Vinci 2024</p>
+        <p>Copyright &copy; Macarena Merlo & Tatjana Blank - Da Vinci 2024</p>
         </footer>
         </div>
 </body>
