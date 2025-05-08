@@ -47,7 +47,7 @@
         </li>
         <li>
           <form action="{{ route('logout') }}" method="POST">
-            @csrf
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <button type="submit" class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent">
               {{ auth()->user()->email }} (Cerrar Sesión)
             </button>

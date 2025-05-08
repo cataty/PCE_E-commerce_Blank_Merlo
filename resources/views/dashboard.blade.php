@@ -59,9 +59,9 @@
               <td class="mr-8 px-6 py-4">{{ $producto->precio }}</td>
               <td class="mr-8 px-6 py-4">{{ $producto->categoria }}</td>
               <td class="px-6 py-4">
-                  <a href="/productos/editar/{{ $producto->id }}/edit" class="text-blue-600 hover:text-blue-900">Editar</a>
+                  <a href="/productos/editar/{{ $producto->id }}/edit" class="text-lightgreen hover:text-darkgreen">Editar</a>
                   <form action="/productos/{{ $producto->id }}" method="POST" class="inline">
-                      @csrf
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       @method('DELETE')
                       <button type="submit" class="text-darkorange hover:text-orange">Eliminar</button>
                   </form>
@@ -100,13 +100,13 @@
                   <td class="mr-8 px-6 py-4">{{ $blogpost->updated_at }}</td>
                   <td class="px-6 py-4">
                     <p>
-                    <a href="{{route('blog', ['id'=> $blogpost->id ])}}" class="text-lightgreen hover:text-darkgreen">ver</a>
+                      <a href="{{ route('blogpost', ['id' => $blogpost->id]) }}" class="text-lightgreen hover:text-darkgreen">Ver</a>
                     </p>
                     <p>
                       <a href="{{route('editarBlogpost', ['id'=> $blogpost->id ])}}" class="text-lightgreen hover:text-darkgreen">Editar</a>
                     </p>
                       <form action="{{ route('deleteBlogpost', ['id' => $blogpost->id]) }}" method="POST" class="inline">
-                          @csrf
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           @method('DELETE')
                           <button type="submit" class="text-darkorange hover:text-orange focus:outline-none">Eliminar</button>
                       </form>

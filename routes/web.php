@@ -31,8 +31,13 @@ Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])
     ->name('blogpost')
     ->where('id', '[0-9]+');
 
-Route::get('/blog/{id}/editar', [BlogController::class, 'editBlogpost'])
+Route::get('/blog/{id}/editar', [BlogController::class, 'editarBlogpost'])
     ->name('editarBlogpost')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+    Route::post('/blog/{id}/editar', [BlogController::class, 'cargaEditBlogpost'])
+    ->name('cargaEditarBlogpost')
     ->where('id', '[0-9]+')
     ->middleware('auth');
 

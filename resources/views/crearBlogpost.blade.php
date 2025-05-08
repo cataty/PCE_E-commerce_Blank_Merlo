@@ -14,7 +14,7 @@
         @endif
 
         <form action="{{ route('cargaDatosBlogpost') }}" method="POST">
-        @csrf
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div>
             <div class="mb-6">
                 <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título:</label>

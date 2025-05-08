@@ -15,6 +15,7 @@ class BlogController extends Controller
     // public function __invoke(){ // invoca una classe como si fuera una function. No puede tener otras functiones dentro de la classe
     //    return view('welcome');
     // }
+    
 
     public function viewBlog(){
         $blog = Blogpost::all(); // Trae todos los blogposts de la base de datos
@@ -32,7 +33,7 @@ class BlogController extends Controller
         return view('crearBlogpost', ['categorias' => $categorias]); 
     } 
 
-    public function editBlogpost($id, Request $request){
+   /* public function editBlogpost($id, Request $request){
         if($request->isMethod('post')){ // Mejorar ???!!!
             $blogpost = Blogpost::find($id); // Crea un nuevo blogpost
             $blogpost->title = $request->input('title'); // Asigna el titulo del blogpost
@@ -41,7 +42,7 @@ class BlogController extends Controller
             return redirect()->route('dashboard'); // Redirige al dashboard
         }
         return view('editarBlogpost'); // Retorna la vista editarBlogpost.blade.php
-    }
+    } */
 
    
     public function saveDataBlogpost(Request $request){
@@ -78,15 +79,48 @@ class BlogController extends Controller
     {
         $blogpost = Blogpost::find($id);
 
-        
-
-        
-
         $blogpost->delete();
 
         return redirect()->route('dashboard')->with('feedback.message', 'Blogpost eliminado con éxito.');
     }
 
+    public function editarBlogpost($id, Request $request){
+        $blogpost = Blogpost::find($id); // Busca el blogpost por id
+        $categorias = CategoriaBlog::all(); // Trae todas las categorias de la base de datos
+        return view('editarBlogpost', ['blogpost' => $blogpost, 'categorias' => $categorias]); // Retorna la vista editarBlogpost.blade.php y le pasa la variable blogpost
+    }
 
+    public function cargaEditBlogpost($id, Request $request){
+        $request->validate([
+            'titulo' => 'required|max:255',
+            'contenido' => 'required',
+            'imagen' => 'required',
+            'categoria' => 'required',
+        ], 
+        [
+            'titulo.required' => 'El campo título es obligatorio',
+            'contenido.required' => 'El campo contenido es obligatorio',
+            'imagen.required' => 'El campo imagen es obligatorio',
+            'categoria.required' => 'El campo categoría es obligatorio',
+        ]);
+        
+        
+        $blogpost = Blogpost::findOrFail($id);
+        $blogpost->titulo = $request->input('titulo'); // Asigna el titulo del blogpost
+        $blogpost->contenido = $request->input('contenido'); // Asigna el contenido del blogpost
+        $blogpost->imagen = $request->input('imagen'); // Asigna la imagen del blogpost
+        $blogpost->categoria_blog_id = $request->input('categoria'); // Asigna el id de la categoria del blogpost
+        $blogpost->usuario_id = auth()->id(); // Asigna el id del usuario que edita el blogpost
+        $blogpost->save(); // Guarda el blogpost en la base de datos
+      
+       
+
+    
+
+        return redirect()
+            ->route('blog') 
+            ->with ('feedback.message', 'Posteo editado con éxito'); // Redirige a la vista blog.blade.php y le pasa la variable success  
+        
+    }
 
 }
