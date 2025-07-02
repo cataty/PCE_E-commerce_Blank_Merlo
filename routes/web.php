@@ -24,6 +24,29 @@ Route::get('/productos/{id}', [ProductosController::class, 'viewProducto'])
     ->name('producto')
     ->where('id', '[0-9]+');
 
+Route::get('/productos/{id}/editar', [ProductosController::class, 'editarProducto'])
+    ->name('editarProducto')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+    Route::post('/productos/{id}/editar', [ProductosController::class, 'cargaEditProducto'])
+    ->name('cargaEditarProducto')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::get('/productos/publicar', [ProductosController::class, 'createProducto'])
+    ->name('crearProducto')
+    ->middleware('auth');
+
+Route::post('/productos/publicar', [ProductosController::class, 'saveDataProducto'])
+    ->name('cargaDatosProducto')
+    ->middleware('auth');
+
+Route::delete('/productos/{id}/eliminar', [ProductosController::class, 'deleteProducto'])
+    ->name('deleteProducto')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
 Route::get('/blog/todos', [BlogController::class, 'viewBlog'])
     ->name('blog');
 
@@ -53,6 +76,7 @@ Route::delete('/blog/{id}/eliminar', [BlogController::class, 'deleteBlogpost'])
     ->name('deleteBlogpost')
     ->where('id', '[0-9]+')
     ->middleware('auth');
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
