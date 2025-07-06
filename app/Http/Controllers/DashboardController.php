@@ -14,8 +14,7 @@ class DashboardController extends Controller
     public function index()
     {
         if (Auth::check()) { // verifica si el usuario está autenticado
-            if (Auth::check()) { // verifica si el usuario está autenticado
-                // usuario identificado
+            if (auth()->user()->id === 1) { // usuario identificado y es admin
                 $usuarios = \App\Models\User::all(); // Trae todos los usuarios de la base de datos
                 $productos = \App\Models\Producto::all(); // Trae todos los productos de la base de datos
                 $blog = \App\Models\Blogpost::all(); // Trae todos los blogposts de la base de datos
@@ -26,8 +25,13 @@ class DashboardController extends Controller
                     'blog' => $blog
                 ]);
             } else {
-                // usuario no identificado
-                // return redirect('/'); // redirige a la vista de inicio
+                return view('home', [
+                    'message' => 'No tenés permiso para acceder al dashboard. Solo los administradores pueden ver esta página.'
+                ])->withErrors([
+                    'dashboard' => 'No tenés permiso para acceder al dashboard. Solo los administradores pueden ver esta página.'
+                ]);
+             
+            }   // return redirect('/'); // redirige a la vista de inicio
 
                 $usuarios = \App\Models\User::all(); // Trae todos los usuarios de la base de datos
                 $productos = \App\Models\Producto::all(); // Trae todos los productos de la base de datos
@@ -42,4 +46,3 @@ class DashboardController extends Controller
         }
     }
     
-}

@@ -63,7 +63,7 @@
           <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('login')}}">Iniciar Sesión</a>
         </li>
         <li>
-          <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('/usuarios/registro')}}">Registro de usuario</a>
+          <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('crearUsuario')}}">Registro de usuario</a>
         </li>
         @endif
       </ul>

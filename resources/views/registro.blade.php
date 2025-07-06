@@ -5,7 +5,7 @@
     <div class="flex flex-col mt-20 min-h-screen">
         <h1 class="block text-gray-700 text-2xl font-bold mb-6 text-center">Crear cuenta</h1>
 
-        <form action="{{ route('register') }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form action="{{ route('usuarios/registro') }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             @csrf
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>

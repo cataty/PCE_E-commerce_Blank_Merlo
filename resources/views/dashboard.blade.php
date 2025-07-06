@@ -27,7 +27,19 @@
               <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $usuario->name }}</td>
                   <td class="px-6 py-4">{{ $usuario->email }}</td>
-                  {{-- <td class="px-6 py-4">{{ $usuario->compras }}</td> --}}
+                    <td class="px-6 py-4">
+                    <p>
+                      <a href="{{ route('usuario', ['id' => $usuario->id]) }}" class="text-lightgreen hover:text-darkgreen">Ver</a>
+                    </p>
+                    <p>
+                      <a href="{{route('editarUsuario', ['id'=> $usuario->id ])}}" class="text-lightgreen hover:text-darkgreen">Editar</a>
+                    </p>
+                      <form action="{{ route('deleteUsuario', ['id' => $usuario->id]) }}" method="POST" class="inline">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          @method('DELETE')
+                          <button type="submit" class="text-darkorange hover:text-orange focus:outline-none">Eliminar</button>
+                      </form>
+                  </td>
               </tr>
               @endforeach
               </tbody>
