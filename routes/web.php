@@ -29,7 +29,7 @@ Route::get('/productos/{id}/editar', [ProductosController::class, 'editarProduct
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-    Route::post('/productos/{id}/editar', [ProductosController::class, 'cargaEditProducto'])
+Route::post('/productos/{id}/editar', [ProductosController::class, 'cargaEditProducto'])
     ->name('cargaEditarProducto')
     ->where('id', '[0-9]+')
     ->middleware('auth');
@@ -47,6 +47,7 @@ Route::delete('/productos/{id}/eliminar', [ProductosController::class, 'deletePr
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
+
 Route::get('/blog/todos', [BlogController::class, 'viewBlog'])
     ->name('blog');
 
@@ -59,7 +60,7 @@ Route::get('/blog/{id}/editar', [BlogController::class, 'editarBlogpost'])
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-    Route::post('/blog/{id}/editar', [BlogController::class, 'cargaEditBlogpost'])
+Route::post('/blog/{id}/editar', [BlogController::class, 'cargaEditBlogpost'])
     ->name('cargaEditarBlogpost')
     ->where('id', '[0-9]+')
     ->middleware('auth');
@@ -74,6 +75,37 @@ Route::post('/blog/publicar', [BlogController::class, 'saveDataBlogpost'])
 
 Route::delete('/blog/{id}/eliminar', [BlogController::class, 'deleteBlogpost'])
     ->name('deleteBlogpost')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+
+Route::get('/usuarios/todos', [UsuariosController::class, 'viewUsuarios'])
+    ->name('usuarios');
+
+Route::get('/usuarios/{id}', [UsuariosController::class, 'viewUsuario'])
+    ->name('usuario')
+    ->where('id', '[0-9]+');
+
+Route::get('/usuarios/{id}/editar', [UsuariosController::class, 'editarUsuario'])
+    ->name('editarUsuario')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::post('/usuarios/{id}/editar', [UsuariosController::class, 'cargaEditUsuario'])
+    ->name('cargaEditarUsuario')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::get('/usuarios/registro', [UsuariosController::class, 'createUsuario'])
+    ->name('crearUsuario')
+    ->middleware('auth');
+
+Route::post('/usuarios/registro', [UsuariosController::class, 'saveDataUsuario'])
+    ->name('cargaDatosUsuario')
+    ->middleware('auth');
+
+Route::delete('/usuarios/{id}/eliminar', [UsuariosController::class, 'deleteUsuario'])
+    ->name('deleteUsuario')
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
