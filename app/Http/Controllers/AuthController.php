@@ -21,9 +21,15 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');// Captura los datos del formulario de login
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()
-                ->intended(route('dashboard')) // Redirige a la vista dashboard.blade.php
-                ->with('feedback.message', 'Bienvenido al Dashboard'); // Redirige a la vista dashboard.blade.php y le pasa la variable success
+            if (auth()->user()->id ===1){
+                return redirect()
+                    ->route('dashboard')
+                    ->with('feedback.message', 'Bienvenido al Dashboard');
+            } else {
+                return redirect()
+                    ->route('home')
+                    ->with('feedback.message', 'Bienvenido a Monstierra');
+            }
         }
         return redirect()
             ->back() // Redirige a la vista login.blade.php
