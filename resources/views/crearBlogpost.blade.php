@@ -9,11 +9,10 @@
         @if ($errors->any())
             <div class="w-screen bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
                 <p>Tu formulario contiene errores, por favor revisa</p>
-
             </div>
         @endif
 
-        <form action="{{ route('cargaDatosBlogpost') }}" method="POST">
+        <form action="{{ route('cargaDatosBlogpost') }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div>
             <div class="mb-6">
