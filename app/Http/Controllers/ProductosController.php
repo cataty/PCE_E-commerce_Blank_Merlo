@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductosController extends Controller
 {
@@ -50,14 +51,9 @@ class ProductosController extends Controller
         $producto->descripcion =  $input['descripcion'];
         $producto->precio =     $input['precio'];
         $producto->categoria =   'Remeras';
-        if ($request->hasFile('imagen')) {
-            $producto->imagen =     $input['imagen'];
-            $file = $request->file('imagen'); // Obtiene el archivo de imagen del request
-            $path = $file->store('imagenes', 'public'); // Guarda la imagen en el disco 'public' en la carpeta 'imagenes'
-            $producto->imagen = $path; // Asigna la ruta de la imagen al producto
-} else {
-    // Do nothing, keep the existing image
-}
+        $file = $request->file('imagen'); // Obtiene el archivo de imagen del request
+        $path = $file->store('productos', 'public'); // Guarda la imagen en el disco 'public' en la carpeta 'imagenes'
+        $producto->imagen = $path; // Asigna la ruta de la imagen al producto
        
         /* $producto->categoria_blog_id = $input['categoria']; // Asigna el id de la categoria del producto */
         $producto->save();
@@ -87,13 +83,33 @@ class ProductosController extends Controller
             'imagen.image' => 'El campo imagen debe ser una imagen válida',
         ]);
 
-        // Lógica para actualizar el producto en la base de datos
 
-        return redirect()->route('productos'); // Redirige a la lista de productos
+        $input = $request->all(); 
+
+        $producto = Producto::findOrFail($id);
+        $producto->nombre =     $input['nombre'];
+        $producto->descripcion =  $input['descripcion'];
+        $producto->precio =     $input['precio'];
+        $producto->categoria =   'Remeras';
+        if ($request->hasFile('imagen')) {
+            Storage::disk('public')->delete($producto->imagen); // Elimina la imagen anterior si existe
+            $file = $request->file('imagen'); // Obtiene el archivo de imagen del request
+            $path = $file->store('productos', 'public'); // Guarda la imagen en el disco 'public' en la carpeta 'imagenes'
+            $producto->imagen = $path; // Asigna la ruta de la imagen al producto
+        }
+        $producto->save();
+
+        return redirect()
+            ->route('productos') 
+            ->with ('feedback.message', 'Producto editado con éxito'); // Redirige a la vista productos.blade.php
     }
+
 
     public function deleteProducto(int $id){
         $producto = Producto::findOrFail($id); // Busca el producto por id
+        if ($producto->imagen) {
+            Storage::disk('public')->delete($producto->imagen);
+        }
         $producto->delete(); // Elimina el producto de la base de datos
         return redirect()->route('productos'); // Redirige a la lista de productos
     }

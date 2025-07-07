@@ -73,7 +73,7 @@ class UsuariosController extends Controller
 
 public function cargaEditUsuario($id, Request $request){
     $request->validate([
-        'nombre' => 'max:255',
+        'nombre' => 'regquired|max:255',
         'email' => 'required|email|unique:users,email,' . $id,
         'password' => 'nullable|confirmed',
     ], [
