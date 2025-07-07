@@ -6,10 +6,59 @@ use Illuminate\Http\Request;
 
 class CarritoController extends Controller
 {
-        public function viewCarrito(int $id){
-
-        // $carrito = Carrito::findOrFail($id)->toArray(); // Trae el carrito de la base de datos y lo convierte a un array
-        // return view('carrito', ['carrito' => $carrito]); // Retorna la vista carrito.blade.php y le pasa la variable carrito
+    /**
+     * Display a listing of the resource.
+     */
+    public function viewCarrito()
+    {
+        return view('carrito');
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }

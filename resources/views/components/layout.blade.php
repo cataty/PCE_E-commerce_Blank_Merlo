@@ -47,17 +47,17 @@
             </li>
           @else
               <li>
-                <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('carrito')}}">Carrito</a>
+                <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('carrito', ['id' => auth()->user()->id]) }}">Carrito</a>
               </li>
           @endif
-        <li>
-          <form action="{{ route('logout') }}" method="POST">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <button type="submit" class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent">
-              {{ auth()->user()->email }} (Cerrar Sesión)
-            </button>
-          </form>
-        </li>
+          <li>
+            <form action="{{ route('logout') }}" method="POST">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <button type="submit" class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent">
+                {{ auth()->user()->email }} (Cerrar Sesión)
+              </button>
+            </form>
+          </li>
         @else
         <li>
           <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('login')}}">Iniciar Sesión</a>

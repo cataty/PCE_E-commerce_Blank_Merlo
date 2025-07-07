@@ -21,6 +21,6 @@ class carrito extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.carrito');
+        return view('carrito');
     }
 }

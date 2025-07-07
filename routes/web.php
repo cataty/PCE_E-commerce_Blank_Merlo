@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductosController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\QuienesSomosController; 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\GraciasController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, 'viewHome'])
@@ -107,24 +109,23 @@ Route::delete('/usuarios/{id}/eliminar', [UsuariosController::class, 'deleteUsua
     ->name('deleteUsuario')
     ->where('id', '[0-9]+')
     ->middleware('auth');
-
     
 Route::get('/carrito/{id}/', [CarritoController::class, 'viewCarrito'])
     ->name('carrito')
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-Route::post('/carrito/{id}', [CarritoController::class, 'cargaEditCarrito'])
+Route::post('/carrito/{id}', [CarritoController::class, ''])
     ->name('cargaEditarCarrito')
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-
+Route::get('/gracias', [GraciasController::class, 'viewGracias'])
+    ->name('gracias');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth');
-
 
 Route::get('/iniciar-sesion', [AuthController::class, 'viewLogin'])
     ->name('login');
