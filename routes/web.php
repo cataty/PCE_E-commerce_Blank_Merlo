@@ -134,6 +134,15 @@ Route::post('/carrito/vaciar', [CartItemController::class, 'vaciar'])
     ->middleware('auth');
 
 
+Route::post('/carrito/{id}/aumentar', [CartItemController::class, 'aumentarCantidad'])
+    ->name('carrito.aumentar')
+    ->middleware('auth');
+
+Route::post('/carrito/{id}/disminuir', [CartItemController::class, 'disminuirCantidad'])
+    ->name('carrito.disminuir')
+    ->middleware('auth');
+
+
 
 
 Route::get('/gracias', [GraciasController::class, 'viewGracias'])

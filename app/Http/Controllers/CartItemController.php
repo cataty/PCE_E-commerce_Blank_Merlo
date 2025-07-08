@@ -81,4 +81,38 @@ class CartItemController extends Controller
     }
 
 
+    // aumentar y disminuir cantidad de productos en el carrito
+    public function aumentarCantidad($id) {
+    $item = CartItem::findOrFail($id);
+
+    if ($item->user_id !== auth()->id()) {
+        abort(403);
+    }
+
+    $item->cantidad += 1;
+    $item->save();
+
+    return redirect()->route('carrito.ver')->with('success', 'Cantidad aumentada');
+}
+
+    public function disminuirCantidad($id) {
+    $item = CartItem::findOrFail($id);
+
+    if ($item->user_id !== auth()->id()) {
+        abort(403);
+    }
+
+    if ($item->cantidad > 1) {
+        $item->cantidad -= 1;
+        $item->save();
+    } else {
+        $item->delete();
+    }
+
+    return redirect()->route('carrito.ver')->with('success', 'Cantidad disminuida');
+}
+
+
+
+
     };

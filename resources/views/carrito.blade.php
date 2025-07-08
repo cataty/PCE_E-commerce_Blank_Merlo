@@ -36,7 +36,21 @@
                         <tr>
                             <td class="border-b p-2">{{ $item->producto->nombre }}</td>
                             <td class="border-b p-2">${{ $item->producto->precio }}</td>
-                            <td class="border-b p-2">{{ $item->cantidad }}</td>
+                            <td class="border-b p-2">
+                                <div class="flex items-center space-x-2">
+                                    <form action="{{ route('carrito.disminuir', $item->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="text-lg px-2 bg-gray-200 hover:bg-gray-300 rounded">-</button>
+                                    </form>
+
+                                    <span>{{ $item->cantidad }}</span>
+
+                                    <form action="{{ route('carrito.aumentar', $item->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="text-lg px-2 bg-gray-200 hover:bg-gray-300 rounded">+</button>
+                                    </form>
+                                </div>
+                            </td>
                             <td class="border-b p-2">${{ $subtotal }}</td>
                             <td class="border-b p-2">
                                 <form action="{{ route('carrito.eliminar', $item->id) }}" method="POST" onsubmit="return confirm('¿Eliminar este producto del carrito?')">
