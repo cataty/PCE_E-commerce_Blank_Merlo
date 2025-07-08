@@ -27,7 +27,7 @@ Este diseño no solo marca nuestro aniversario, sino que también simboliza el c
 ¡Únete a la celebración con "El Monstruo Festivo" y lleva contigo un pedacito de nuestra historia! 🎉
                 ',
                 'categoria_blog_id' => '2',
-                'imagen' => 'img/blog1.webp',
+                'imagen' => 'blog/blog1.webp',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -46,7 +46,7 @@ Además de su talento artístico, Sofía es una firme defensora de la sostenibil
 Gracias a Sofía, nuestra marca no solo crea ropa, sino que también inspira a las personas a celebrar su individualidad. Estamos orgullosos de tenerla como parte de nuestro equipo y emocionados por los diseños que aún están por venir. ¡El futuro es brillante con Sofía a bordo!
                 ',
                 'categoria_blog_id' => '1',
-                'imagen' => 'img/blog2.webp',
+                'imagen' => 'blog/blog2.webp',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -67,7 +67,7 @@ Por último, la tecnología interactiva está comenzando a influir en el diseño
 ¡El futuro del diseño de remeras nunca ha sido tan emocionante!
                 ',
                 'categoria_blog_id' => '3',
-                'imagen' => 'img/blog3.webp',
+                'imagen' => 'blog/blog3.webp',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

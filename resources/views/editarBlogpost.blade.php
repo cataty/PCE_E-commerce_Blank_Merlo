@@ -9,12 +9,11 @@
         @if ($errors->any())
             <div class="w-screen bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
                 <p>Tu formulario contiene errores, por favor revisa</p>
-
             </div>
         @endif
 
-        <form action="{{ route('cargaEditarBlogpost', ['id' => $blogpost->id]) }}" method="POST">
-        @csrf
+        <form action="{{ route('cargaEditarBlogpost', ['id' => $blogpost->id]) }}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div>
             <div class="mb-6">
                 <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título:</label>
@@ -37,7 +36,8 @@
                     rows="7"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('contenido') border-red-500 @enderror"
                     required
-                >{{ old('contenido', $blogpost-> contenido)}}  </textarea> @error('contenido')
+                >{{ old('contenido', $blogpost->contenido) }}</textarea>
+                @error('contenido')
                     <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                 @enderror
             </div>
@@ -60,6 +60,7 @@
                 @enderror
             </div>
             <div class="mb-6">
+             <img src="{{ asset($blogpost['imagen'])}}" alt="{{$blogpost->titulo}}"  class="mb-4 w-48 h-48 object-cover">
                 <label for="imagen" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen:</label>
                 <input
                     type="file"

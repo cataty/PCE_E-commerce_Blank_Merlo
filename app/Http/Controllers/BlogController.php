@@ -64,7 +64,9 @@ class BlogController extends Controller
         $blogpost =             new Blogpost();
         $blogpost->titulo =     $input['titulo'];
         $blogpost->contenido =  $input['contenido'];
-        $blogpost->imagen =     $input['imagen'];
+        $file = $request->file('imagen'); // Obtiene el archivo de imagen del request
+        $path = $file->store('blog', 'public'); // Guarda la imagen en el disco 'public' en la carpeta 'blog'
+        $blogpost->imagen = $path; // Asigna la ruta de la imagen al blogpost
         $blogpost->categoria_blog_id = $input['categoria']; // Asigna el id de la categoria del blogpost
         $blogpost->usuario_id = auth()->id();
         $blogpost->save();
@@ -108,14 +110,15 @@ class BlogController extends Controller
         $blogpost = Blogpost::findOrFail($id);
         $blogpost->titulo = $request->input('titulo'); // Asigna el titulo del blogpost
         $blogpost->contenido = $request->input('contenido'); // Asigna el contenido del blogpost
-        $blogpost->imagen = $request->input('imagen'); // Asigna la imagen del blogpost
+        if ($request->hasFile('imagen')) {
+            Storage::disk('public')->delete($blogpost->imagen); // Elimina la imagen anterior si existe
+            $file = $request->file('imagen'); // Obtiene el archivo de imagen del request
+            $path = $file->store('blog', 'public'); // Guarda la imagen en el disco 'public' en la carpeta 'blog'
+            $blogpost->imagen = $path; // Asigna la ruta de la imagen al blogpost
+        }
         $blogpost->categoria_blog_id = $request->input('categoria'); // Asigna el id de la categoria del blogpost
         $blogpost->usuario_id = auth()->id(); // Asigna el id del usuario que edita el blogpost
         $blogpost->save(); // Guarda el blogpost en la base de datos
-      
-       
-
-    
 
         return redirect()
             ->route('blog') 

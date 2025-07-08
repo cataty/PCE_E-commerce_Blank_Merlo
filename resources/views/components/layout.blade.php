@@ -41,21 +41,29 @@
           <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('blog')}}">Blog</a>
         </li>
         @if(auth()->check())
-
-        <li>
-          <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('dashboard')}}">Dashboard</a>
-        </li>
-        <li>
-          <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent">
-              {{ auth()->user()->email }} (Cerrar Sesión)
-            </button>
-          </form>
-        </li>
+          @if(auth()->user()->id === 1)
+            <li>
+              <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('dashboard')}}">Dashboard</a>
+            </li>
+          @else
+              <li>
+                <a class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('carrito', ['id' => auth()->user()->id]) }}">Carrito</a>
+              </li>
+          @endif
+          <li>
+            <form action="{{ route('logout') }}" method="POST">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <button type="submit" class="block py-2 px-3 text-emerald-100 rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent">
+                {{ auth()->user()->email }} (Cerrar Sesión)
+              </button>
+            </form>
+          </li>
         @else
         <li>
-          <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('login')}}"'>Iniciar Sesión</a>
+          <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('login')}}">Iniciar Sesión</a>
+        </li>
+        <li>
+          <a class="block py-2 px-3 text-lightorange rounded-sm hover:text-emerald-900 md:hover:bg-transparent md:border-0 md:hover:text-dark-orange md:p-0 dark:text-white md:dark:hover:text-lightgreen dark:hover:bg-lightgreen dark:hover:text-white md:dark:hover:bg-transparent" href="{{route('crearUsuario')}}">Registro de usuario</a>
         </li>
         @endif
       </ul>
@@ -64,7 +72,7 @@
 </nav>
 <main class="flex flex-wrap content-start justify-center mx-auto pt-20">
   @if (session('feedback.message'))
-  <div class="w-screen bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+  <div class="w-screen bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4 -mt-20" role="alert">
       
       <p>{{ session('feedback.message') }}</p>
   </div>
