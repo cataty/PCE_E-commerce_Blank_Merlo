@@ -2,7 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductosController;
@@ -110,15 +110,31 @@ Route::delete('/usuarios/{id}/eliminar', [UsuariosController::class, 'deleteUsua
     ->where('id', '[0-9]+')
     ->middleware('auth');
     
-Route::get('/carrito/{id}/', [CarritoController::class, 'viewCarrito'])
-    ->name('carrito')
-    ->where('id', '[0-9]+')
+
+ 
+Route::post('/carrito/agregar', [CartItemController::class, 'agregar'])
+    ->name('carrito.agregar')
     ->middleware('auth');
 
-Route::post('/carrito/{id}', [CarritoController::class, ''])
+Route::get('/carrito', [CartItemController::class, 'viewCarrito'])
+    ->name('carrito.ver')
+    ->middleware('auth');
+
+Route::post('/carrito/{id}', [CartItemController::class, 'actualizar'])
     ->name('cargaEditarCarrito')
     ->where('id', '[0-9]+')
     ->middleware('auth');
+
+Route::delete('/carrito/{id}', [CartItemController::class, 'eliminar'])
+    ->name('carrito.eliminar')
+    ->middleware('auth');
+
+Route::post('/carrito/vaciar', [CartItemController::class, 'vaciar'])
+    ->name('carrito.vaciar')
+    ->middleware('auth');
+
+
+
 
 Route::get('/gracias', [GraciasController::class, 'viewGracias'])
     ->name('gracias');

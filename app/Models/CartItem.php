@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use illumintate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CartItem extends Model
 {
@@ -25,7 +25,7 @@ class CartItem extends Model
 
     public function producto() //relacion con el producto
     {
-        return $this->belongsTo(Producto::class);
+        return $this->belongsTo(Producto::class,'producto_id', 'producto_id'); //El segundo parámetro 'producto_id' es el foreign key en cart_items
     }
 
 

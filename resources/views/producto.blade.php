@@ -12,7 +12,7 @@
             {{$producto["descripcion"]}}
         </p>
         <p class="mb-8 font-normal text-lightgreen dark:text-gray-400">precio: <span class="font-bold">{{ $producto["precio"] }}$</span></p>
-        <form>
+        <form action="{{ route('carrito.agregar') }}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="producto_id" value="{{ $producto['producto_id'] }}">
             <input type="number" name="cantidad" value="1" min="1" class="mb-4 w-16 p-2 border rounded">
@@ -21,5 +21,5 @@
             </button>
     </div>
 
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
+   
 </x-layout>
