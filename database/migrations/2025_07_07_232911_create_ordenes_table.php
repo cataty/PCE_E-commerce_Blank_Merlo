@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('ordenes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->enum('estado', ['pendiente', 'pagada', 'enviado', 'entregado', 'cancelado'])->default('pendiente');
+            $table->integer('total')->unsigned(); // Total de la orden
             $table->timestamps();
         });
     }
