@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
             CategoriaBlogSeeder::class,
             BlogpostSeeder::class,
             CategoriaPrSeeder::class,
+          
+            CartItemSeeder::class,
+            OrdenSeeder::class,
+            OrdenItemSeeder::class,
+
+
         ]);
        
     }
