@@ -34,7 +34,7 @@
                 >
                     Iniciar Sesión
                 </button>
-                <a href="/usuarios/registro" class="inline-block align-baseline font-bold text-sm text-lightgreen hover:text-darkorange">
+                <a href="{{route('crearUsuario')}}" class="inline-block align-baseline font-bold text-sm text-lightgreen hover:text-darkorange">
                     Crear Cuenta
                 </a>
             </div>
