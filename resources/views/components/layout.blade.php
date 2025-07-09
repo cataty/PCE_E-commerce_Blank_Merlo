@@ -72,7 +72,7 @@
       @endif
   </div>
 </nav>
-<main class="flex flex-wrap content-start justify-center mx-auto pt-20">
+<main class="flex flex-wrap content-start justify-center mx-auto pt-20 pb-40">
   @if (session('feedback.message'))
   <div class="w-screen bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4 -mt-20" role="alert">
       

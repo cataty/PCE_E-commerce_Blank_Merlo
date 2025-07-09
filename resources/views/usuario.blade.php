@@ -4,14 +4,14 @@
 
 <x-layout>
 <x-slot:title>Usuario: {{ $usuario->name }}</x-slot:title>
-<section class="mb-12 flex flex-col items-center">
+<section class="flex flex-col items-center">
 <h1 class="max-w-2xl mb-12 pt-12 text-4xl text-lightgreen font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Usuario: {{ $usuario->name }} </h1>
-<div class="my-6 w-full">
+<div class="my-6 w-full shadow-md rounded px-8 py-6 bg-white dark:bg-gray-800">
     <h2 class="mb-2 text-2xl font-bold tracking-tight text-darkgreen dark:text-white">Datos del usuario</h2>
     <p>Nombre: {{ $usuario->name }}</p>
     <p>Email: {{ $usuario->email }}</p>
 </div>
-<div class="my-6 w-full">
+<div class="my-6 w-full shadow-md rounded px-8 py-6 bg-white dark:bg-gray-800">
     <h2 class="mb-2 text-2xl font-bold tracking-tight text-darkgreen dark:text-white">Ordenes</h2>
     @if($usuario->ordenes->isEmpty())
         <p>No hay ordenes para mostrar.</p>
@@ -39,7 +39,5 @@
     <a href="{{ route('dashboard') }}">Volver al Dashboard</a>
 
 </section>
-  
-
-   
+     
 </x-layout>
