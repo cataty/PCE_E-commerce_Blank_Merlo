@@ -75,7 +75,7 @@
             <form action="{{ route('carrito.checkout') }}" method="POST" onsubmit="return confirm('¿Deseás finalizar tu compra?')">
             @csrf
             <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-6">
-            Finalizar compra
+            Ir a pagar
             </button>
             </form>
            
