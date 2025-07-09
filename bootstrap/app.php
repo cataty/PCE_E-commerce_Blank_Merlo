@@ -12,6 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias(['auth' => \App\Http\Middleware\RequireAuthWithMessage::class]);
+        $middleware->alias(['is_admin' => \App\Http\Middleware\IsAdmin::class]);
     }) 
 
 
