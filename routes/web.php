@@ -13,6 +13,7 @@ use App\Http\Controllers\QuienesSomosController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\GraciasController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrdenController;
 
 Route::get('/', [HomeController::class, 'viewHome'])
     ->name('home');
@@ -133,7 +134,6 @@ Route::post('/carrito/vaciar', [CartItemController::class, 'vaciar'])
     ->name('carrito.vaciar')
     ->middleware('auth');
 
-
 Route::post('/carrito/{id}/aumentar', [CartItemController::class, 'aumentarCantidad'])
     ->name('carrito.aumentar')
     ->middleware('auth');
@@ -141,8 +141,6 @@ Route::post('/carrito/{id}/aumentar', [CartItemController::class, 'aumentarCanti
 Route::post('/carrito/{id}/disminuir', [CartItemController::class, 'disminuirCantidad'])
     ->name('carrito.disminuir')
     ->middleware('auth');
-
-
 
 
 Route::get('/gracias', [GraciasController::class, 'viewGracias'])
@@ -160,3 +158,8 @@ Route::post('/iniciar-sesion', [AuthController::class, 'authenticate'])
 
 Route::post('/cerrar-sesion', [AuthController::class, 'logout'])
     ->name('logout');
+
+
+Route::post('/checkout', [OrdenController::class, 'checkout'])
+    ->name('carrito.checkout')
+    ->middleware('auth');

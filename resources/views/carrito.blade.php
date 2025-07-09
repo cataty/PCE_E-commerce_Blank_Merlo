@@ -72,6 +72,12 @@
                 
                 <button type="submit" class="text-red-600 hover:underline font-semibold mt-4">Vaciar carrito</button>
             </form>
+            <form action="{{ route('carrito.checkout') }}" method="POST" onsubmit="return confirm('¿Deseás finalizar tu compra?')">
+            @csrf
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-6">
+            Finalizar compra
+            </button>
+            </form>
            
         @endif
 
