@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\HomeController;
@@ -31,25 +30,25 @@ Route::get('/productos/{id}', [ProductosController::class, 'viewProducto'])
 Route::get('/productos/{id}/editar', [ProductosController::class, 'editarProducto'])
     ->name('editarProducto')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::post('/productos/{id}/editar', [ProductosController::class, 'cargaEditProducto'])
     ->name('cargaEditarProducto')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin' );
 
 Route::get('/productos/publicar', [ProductosController::class, 'createProducto'])
     ->name('crearProducto')
-    ->middleware('auth');
+    ->middleware('auth' , 'is_admin');
 
 Route::post('/productos/publicar', [ProductosController::class, 'saveDataProducto'])
     ->name('cargaDatosProducto')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::delete('/productos/{id}/eliminar', [ProductosController::class, 'deleteProducto'])
     ->name('deleteProducto')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 
 Route::get('/blog/todos', [BlogController::class, 'viewBlog'])
@@ -62,25 +61,25 @@ Route::get('/blog/{id}', [BlogController::class, 'viewBlogpost'])
 Route::get('/blog/{id}/editar', [BlogController::class, 'editarBlogpost'])
     ->name('editarBlogpost')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::post('/blog/{id}/editar', [BlogController::class, 'cargaEditBlogpost'])
     ->name('cargaEditarBlogpost')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::get('/blog/publicar', [BlogController::class, 'createBlogpost'])
     ->name('crearBlogpost')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin' );
 
 Route::post('/blog/publicar', [BlogController::class, 'saveDataBlogpost'])
     ->name('cargaDatosBlogpost')
-    ->middleware('auth');
+    ->middleware('auth' , 'is_admin');
 
 Route::delete('/blog/{id}/eliminar', [BlogController::class, 'deleteBlogpost'])
     ->name('deleteBlogpost')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 
 Route::get('/usuarios/todos', [UsuariosController::class, 'viewUsuarios'])
@@ -88,17 +87,18 @@ Route::get('/usuarios/todos', [UsuariosController::class, 'viewUsuarios'])
 
 Route::get('/usuarios/{id}', [UsuariosController::class, 'viewUsuario'])
     ->name('usuario')
-    ->where('id', '[0-9]+');
+    ->where('id', '[0-9]+')
+    ->middleware('auth', 'is_admin');
 
 Route::get('/usuarios/{id}/editar', [UsuariosController::class, 'editarUsuario'])
     ->name('editarUsuario')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::post('/usuarios/{id}/editar', [UsuariosController::class, 'cargaEditUsuario'])
     ->name('cargaEditarUsuario')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::get('/usuarios/registro', [UsuariosController::class, 'createUsuario'])
     ->name('crearUsuario');
@@ -109,10 +109,8 @@ Route::post('/usuarios/registro', [UsuariosController::class, 'saveDataUsuario']
 Route::delete('/usuarios/{id}/eliminar', [UsuariosController::class, 'deleteUsuario'])
     ->name('deleteUsuario')
     ->where('id', '[0-9]+')
-    ->middleware('auth');
-    
+    ->middleware('auth', 'is_admin');
 
- 
 Route::post('/carrito/agregar', [CartItemController::class, 'agregar'])
     ->name('carrito.agregar')
     ->middleware('auth');
@@ -148,7 +146,7 @@ Route::get('/gracias', [GraciasController::class, 'viewGracias'])
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
-    ->middleware('auth');
+    ->middleware('auth', 'is_admin');
 
 Route::get('/iniciar-sesion', [AuthController::class, 'viewLogin'])
     ->name('login');
