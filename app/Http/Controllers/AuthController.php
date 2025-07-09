@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Middleware\isAdmin;
 
-class AuthController extends Controller
+Class AuthController extends Controller
 {
     public function viewLogin()
     {
