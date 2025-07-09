@@ -47,4 +47,12 @@ class OrdenController extends Controller
 
         return redirect()->route('gracias')->with('success', '¡Compra realizada con éxito!');
     }
-} 
+
+    // Ver ordenes del usuario
+    public function verOrdenes($userId)
+    {
+        $user = \App\Models\User::with('ordenes.ordenItems.producto')->findOrFail($userId);
+        $ordenItems = $user->ordenes->flatMap->ordenItems;
+        return view('ordenes', compact('user', 'ordenItems'));
+    }
+}

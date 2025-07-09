@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Orden;
 
 class User extends Authenticatable
 {
@@ -31,6 +33,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function ordenes(): HasMany // Relación con las órdenes del usuario
+    {
+        return $this->hasMany(Orden::class);
+    }
 
     /**
      * Get the attributes that should be cast.

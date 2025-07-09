@@ -11,7 +11,13 @@ class Blogpost extends Model
     use HasFactory;
     protected $table = 'blog';
 
-   
+    protected $fillable = [
+        'titulo',
+        'contenido',
+        'imagen',
+        'categoria_blog_id',
+        'usuario_id',
+    ];
 
     public function categoria_blog(): BelongsTo {
         return $this->belongsTo(CategoriaBlog::class, 'categoria_blog_id', 'categoria_blog_id');}

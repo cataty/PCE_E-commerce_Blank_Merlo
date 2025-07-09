@@ -28,7 +28,7 @@ class OrdenItem extends Model
 
     public function producto(): BelongsTo // Relación con el producto
     {
-        return $this->belongsTo(Producto::class);
+        return $this->belongsTo(Producto::class,'producto_id', 'producto_id'); //El segundo parámetro 'producto_id' es el foreign key en orden_items
     }
 
 }

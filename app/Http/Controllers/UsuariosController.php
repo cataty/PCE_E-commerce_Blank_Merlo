@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class UsuariosController extends Controller
 {
         public function viewUsuario($id){
-        $usuario = User::findOrFail($id); // Busca el usuario por id
-        return view('usuario', ['usuario' => $usuario]); // Retorna la vista blog.blade.php y le pasa la variable usuario
+        $usuario = User::with('ordenes.ordenItems.producto')->findOrFail($id); // Busca el usuario por , con sus ordenes y sus items de orden
+        return view('usuario', ['usuario' => $usuario]); // Retorna la vista usuario.blade.php y le pasa la variable usuario
     }
 
         public function createUsuario(Request $request){
