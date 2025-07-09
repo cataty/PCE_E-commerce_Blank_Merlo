@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\CategoriaBlog; // Importa el modelo CategoriaBlog
 use App\Models\Producto; // Importa el modelo Producto
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Auth\AuthManager; 
 
 
