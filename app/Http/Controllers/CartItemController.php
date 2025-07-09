@@ -24,7 +24,15 @@ class CartItemController extends Controller
 
     
     public function agregar(Request $request) {
+    
+    $user = auth()->user();
+
+    // Validar que no sea admin (id = 1)
+    if ($user && $user->id === 1) {
+        return redirect()->back()->with('error', 'Eres usuario administrador. No puedes agregar productos al carrito.');
+    }
         
+
     $request->validate([
         'producto_id' => 'required|exists:productos,producto_id',
         'cantidad' => 'required|integer|min:1',
