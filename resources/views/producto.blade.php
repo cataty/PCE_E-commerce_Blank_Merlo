@@ -7,11 +7,23 @@
     <div class="w-full sm:w-8/12 lg:w-4/12 mx-auto my-12">
 
         <h1 class="mb-4 text-4xl text-gray-900 md:text-4xl">{{$producto["nombre"]}}</h1>
+        @if (session('error'))
+        <div class="bg-red-100 text-red-700 p-2 rounded mt-4">
+        {{ session('error') }}
+        </div>
+        @endif
         <p class=" text-gray-700 dark:text-gray-400">
             <img class="mb-12" src="{{ asset('storage/' . $producto['imagen']) }}" alt="{{$producto['nombre']}}" />
             {{$producto["descripcion"]}}
         </p>
         <p class="mb-8 font-normal text-lightgreen dark:text-gray-400">precio: <span class="font-bold">{{ $producto["precio"] }}$</span></p>
+
+       @auth
+        @if (auth()->user()->id === 1)
+            <p class="text-red-500 mt-4">
+                Eres usuario administrador. No puedes agregar productos al carrito.
+            </p>
+        @else 
         <form action="{{ route('carrito.agregar') }}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="producto_id" value="{{ $producto['producto_id'] }}">
@@ -19,6 +31,18 @@
             <button type="submit" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Agregar al carrito
             </button>
+        </form>
+        @endif
+       
+        @else
+        <form action="{{ route('login') }}" method="GET">
+        <button type="submit" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Agregar al carrito
+        </button>
+        </form>
+        <p class="text-sm text-gray-600 mt-2">Debes iniciar sesión para agregar productos al carrito.</p>
+        @endauth
+
     </div>
 
    
