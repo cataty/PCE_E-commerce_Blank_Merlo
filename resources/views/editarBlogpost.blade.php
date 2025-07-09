@@ -60,7 +60,7 @@
                 @enderror
             </div>
             <div class="mb-6">
-             <img src="{{ asset($blogpost['imagen'])}}" alt="{{$blogpost->titulo}}"  class="mb-4 w-48 h-48 object-cover">
+             <img src="{{ asset('storage/' . $blogpost['imagen']) }}" alt="{{$blogpost->titulo}}"  class="mb-4 w-48 h-48 object-cover">
                 <label for="imagen" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen:</label>
                 <input
                     type="file"
