@@ -2,29 +2,86 @@
     /** @var \Illuminate\Support\ViewErrorBag $errors */
     ?>
     <x-layout>
-        <x-slot:title>Crear Blogpost</x-slot:title>
-        <section>
-        <h1 class="max-w-2xl mb-12 pt-12 text-4xl text-lightgreen font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-whitel">Carrito</h1>
+    <x-slot:title>Mi Carrito</x-slot:title>
 
-        @if ($errors->any())
-            <div class="w-screen bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
-                <p>Tu carrito contiene errores, por favor revisa</p>
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Mi Carrito</h1>
+
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                {{ session('success') }}
             </div>
         @endif
 
-        @if (isset($carrito) && $carrito->isNotEmpty())
-            <div class="p-4 mb-4">
-                <p>Tu carrito contiene productos.</p>
-                <form action="" method="POST" >
-                @foreach ($carrito as $producto)
-                @endforeach
-                <button type="submit"> Finalizar Compra </button>
-                </form>
+        @if($items->isEmpty())
+            <p class="text-gray-700">Tu carrito está vacío.</p>
+        @else
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b p-2">Producto</th>
+                        <th class="border-b p-2">Precio</th>
+                        <th class="border-b p-2">Cantidad</th>
+                        <th class="border-b p-2">Total</th>
+                        <th class="border-b p-2">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php $total = 0; @endphp
+                    @foreach($items as $item)
+                        @php
+                            $subtotal = $item->cantidad * $item->producto->precio;
+                            $total += $subtotal;
+                        @endphp
+                        <tr>
+                            <td class="border-b p-2">{{ $item->producto->nombre }}</td>
+                            <td class="border-b p-2">${{ $item->producto->precio }}</td>
+                            <td class="border-b p-2">
+                                <div class="flex items-center space-x-2">
+                                    <form action="{{ route('carrito.disminuir', $item->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="text-lg px-2 bg-gray-200 hover:bg-gray-300 rounded">-</button>
+                                    </form>
+
+                                    <span>{{ $item->cantidad }}</span>
+
+                                    <form action="{{ route('carrito.aumentar', $item->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="text-lg px-2 bg-gray-200 hover:bg-gray-300 rounded">+</button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td class="border-b p-2">${{ $subtotal }}</td>
+                            <td class="border-b p-2">
+                                <form action="{{ route('carrito.eliminar', $item->id) }}" method="POST" onsubmit="return confirm('¿Eliminar este producto del carrito?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-600 hover:underline">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <div class="text-right mt-6">
+                <p class="text-xl font-bold">Total: ${{ $total }}</p>
             </div>
-        @else 
-            <div class="text-darkgreen p-4 mb-4" role="alert">
-                <p>Tu carrito está vacío.</p>
-            </div>
+            <form action="{{ route('carrito.vaciar') }}" method="POST" onsubmit="return confirm('¿Estás segur@ de que querés vaciar el carrito?')">
+                @csrf
+                
+                <button type="submit" class="text-red-600 hover:underline font-semibold mt-4">Vaciar carrito</button>
+            </form>
+            <form action="{{ route('carrito.checkout') }}" method="POST" onsubmit="return confirm('¿Deseás finalizar tu compra?')">
+            @csrf
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-6">
+            Ir a pagar
+            </button>
+            </form>
+           
         @endif
-</section>
+
+         
+    </div>
 </x-layout>
+
