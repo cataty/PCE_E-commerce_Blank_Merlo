@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     
 <nav class="bg-darkorange border-gray-200 dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap jsutify-between md:justify-end mx-auto p-4">
-    <a href="/public/" class="flex items-center mr-auto space-x-3 rtl:space-x-reverse">
+    <a href="/" class="flex items-center mr-auto space-x-3 rtl:space-x-reverse">
         <img src="{{ asset('img/Logo.svg') }}" class="h-12" alt="Monstierra Logo" />
     </a>
     
