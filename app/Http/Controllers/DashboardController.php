@@ -41,7 +41,7 @@ class DashboardController extends Controller
                     'usuarios' => $usuarios,
                     'productos' => $productos,
                     'blog' => $blog
-                ]); //por ahora lo dejo igual
+                ]);
             }
         }
     }

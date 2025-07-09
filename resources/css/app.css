@@ -5,7 +5,7 @@
 @source "../../node_modules/flowbite";
 @import url('https://fonts.googleapis.com/css2?family=Lemon&family=Margarine&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yusei+Magic&display=swap');
 
-/* Colores de la marca */
+/* Colores z fuentes de la marca */
 :root{
     --darkgreen: #143829;
     --lightgreen: #2b5b3f;
@@ -50,6 +50,14 @@
 
 * {
     font-family: 'Yusei Magic', Arial, sans-serif;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.font-yusei {
+    font-family: 'Yusei Magic', Arial, Helvetica, sans-serif;
 }
 
 html,
